@@ -6,13 +6,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/espressif/esp-idf/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "espressif",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "SDK"],
+      "tags": [
+        "官方",
+        "SDK"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -22,13 +27,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/hpmicro/hpm_sdk/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "hpmicro",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "SDK"],
+      "tags": [
+        "官方",
+        "SDK"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -38,13 +48,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/bouffalolab/bouffalo_sdk/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "bouffalo",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "SDK"],
+      "tags": [
+        "官方",
+        "SDK"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -54,13 +69,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/OpenSiFli/SiFli-SDK/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "sifli",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "SDK"],
+      "tags": [
+        "官方",
+        "SDK"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -70,13 +90,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/artinchip/luban-lite/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "artinchip",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "SDK"],
+      "tags": [
+        "官方",
+        "SDK"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -86,13 +111,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/openLuat/LuatOS/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "luat",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "SDK"],
+      "tags": [
+        "官方",
+        "SDK"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -102,13 +132,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/kendryte/canmv_k230/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "canaan",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "SDK"],
+      "tags": [
+        "官方",
+        "SDK"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -118,13 +153,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/sophgo/tpu-mlir/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "sophgo",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "工具链"],
+      "tags": [
+        "官方",
+        "工具链"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -134,13 +174,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/T-head-Semi/openc910/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "t-head",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "开源"],
+      "tags": [
+        "官方",
+        "开源"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -150,13 +195,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/NXPmicro/mcux-sdk/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "nxp",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "SDK"],
+      "tags": [
+        "官方",
+        "SDK"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -166,13 +216,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/raspberrypi/linux/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "raspberrypi",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "内核"],
+      "tags": [
+        "官方",
+        "内核"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -182,13 +237,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/zephyrproject-rtos/zephyr/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "RTOS"],
+      "tags": [
+        "官方",
+        "RTOS"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -198,13 +258,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/FreeRTOS/FreeRTOS-Kernel/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "RTOS"],
+      "tags": [
+        "官方",
+        "RTOS"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -214,13 +279,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/apache/nuttx/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "RTOS"],
+      "tags": [
+        "官方",
+        "RTOS"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -230,13 +300,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/RT-Thread/rt-thread/releases.atom",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "RTOS"],
+      "tags": [
+        "官方",
+        "RTOS"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -245,14 +320,19 @@
       "name": "树莓派官方博客",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.raspberrypi.com/blog/feed/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "feedUrl": "https://www.raspberrypi.com/news/feed/",
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "raspberrypi",
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": ["官方", "博客"],
+      "tags": [
+        "官方",
+        "博客"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -262,13 +342,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://developer.nvidia.com/blog/feed/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "nvidia",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "博客"],
+      "tags": [
+        "官方",
+        "博客"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -278,13 +363,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://zephyrproject.org/feed/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "博客"],
+      "tags": [
+        "官方",
+        "博客"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -294,13 +384,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://kernel.org/feeds/kdist.xml",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "内核"],
+      "tags": [
+        "官方",
+        "内核"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -310,13 +405,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.yoctoproject.org/feed/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "博客"],
+      "tags": [
+        "官方",
+        "博客"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -326,13 +426,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://boosterobotics.medium.com/feed",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T1",
       "owner_entity_id": "booster",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "博客"],
+      "tags": [
+        "官方",
+        "博客"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -342,13 +447,17 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://lwn.net/headlines/rss",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["媒体"],
+      "tags": [
+        "媒体"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -358,13 +467,17 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://forums.freertos.org/latest.rss",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["社区"],
+      "tags": [
+        "社区"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -376,14 +489,22 @@
         "url": "https://www.rock-chips.com/a/cn/news/rockchip/index.html",
         "baseUrl": "https://www.rock-chips.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.rock-chips.com/a/cn/news/"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.rock-chips.com/a/cn/news/"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "rockchip",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -395,14 +516,22 @@
         "url": "https://www.gigadevice.com/about/news-and-event/news",
         "baseUrl": "https://www.gigadevice.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.gigadevice.com/about/news-and-event"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.gigadevice.com/about/news-and-event"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "gigadevice",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -414,14 +543,22 @@
         "url": "https://www.nationstech.com/about/news/information/",
         "baseUrl": "https://www.nationstech.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.nationstech.com/about/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.nationstech.com/about/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "nations",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -433,14 +570,24 @@
         "url": "https://www.allwinnertech.com/index.php?c=news&a=index&pid=2",
         "baseUrl": "https://www.allwinnertech.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.allwinnertech.com/index.php?c=news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.allwinnertech.com/index.php?c=news",
+          "https://mp.weixin.qq.com"
+        ],
+        "detail": {
+          "maxFetches": 5
+        },
+        "itemSelector": ".newsk"
       },
       "tier": "T1",
       "owner_entity_id": "allwinner",
       "participation_mode": "editorial",
       "interval_minutes": 240,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -452,16 +599,26 @@
         "url": "https://www.hisilicon.com/cn/about-us/press",
         "baseUrl": "https://www.hisilicon.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.hisilicon.com/cn/about-us/press", "https://www.hisilicon.com/cn/media-kit"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.hisilicon.com/cn/about-us/press",
+          "https://www.hisilicon.com/cn/media-kit"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "hisilicon",
       "participation_mode": "editorial",
       "interval_minutes": 240,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-wch-news",
@@ -471,16 +628,26 @@
         "url": "https://www.wch.cn/",
         "baseUrl": "https://www.wch.cn",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.wch.cn/news", "https://www.wch.cn/new-product"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.wch.cn/news",
+          "https://www.wch.cn/new-product"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "wch",
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-sifli-news",
@@ -490,16 +657,29 @@
         "url": "https://www.sifli.com/zh-hans/news-list",
         "baseUrl": "https://www.sifli.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.sifli.com/zh-hans/news", "https://www.sifli.com/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.sifli.com/zh-hans/news",
+          "https://www.sifli.com/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        },
+        "itemSelector": "tr",
+        "linkSelector": "a",
+        "publishedAtSelector": ".views-field"
       },
       "tier": "T1",
       "owner_entity_id": "sifli",
       "participation_mode": "editorial",
       "interval_minutes": 240,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-artinchip-news",
@@ -509,14 +689,23 @@
         "url": "https://www.artinchip.com/News.html",
         "baseUrl": "https://www.artinchip.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.artinchip.com/News", "https://www.artinchip.com/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.artinchip.com/News",
+          "https://www.artinchip.com/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "artinchip",
       "participation_mode": "editorial",
       "interval_minutes": 240,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -528,14 +717,23 @@
         "url": "https://www.espressif.com/en/company/newsroom/news",
         "baseUrl": "https://www.espressif.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.espressif.com/en/company/newsroom", "https://www.espressif.com/en/media"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.espressif.com/en/company/newsroom",
+          "https://www.espressif.com/en/media"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "espressif",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -547,16 +745,25 @@
         "url": "https://www.microchip.com/en-us/about/news-releases.html",
         "baseUrl": "https://www.microchip.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.microchip.com/en-us/about/news-releases"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.microchip.com/en-us/about/news-releases"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "microchip",
       "participation_mode": "editorial",
       "interval_minutes": 240,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-st-newsroom",
@@ -566,14 +773,23 @@
         "url": "https://newsroom.st.com",
         "baseUrl": "https://newsroom.st.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://newsroom.st.com"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://newsroom.st.com"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "st",
       "participation_mode": "editorial",
       "interval_minutes": 240,
-      "tags": ["官方", "新闻页", "反爬风险", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "反爬风险",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -585,16 +801,26 @@
         "url": "https://media.nxp.com",
         "baseUrl": "https://media.nxp.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://media.nxp.com"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://media.nxp.com"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "nxp",
       "participation_mode": "editorial",
       "interval_minutes": 240,
-      "tags": ["官方", "新闻页", "反爬风险", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "反爬风险",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-figure-news",
@@ -604,14 +830,22 @@
         "url": "https://www.figure.ai/news",
         "baseUrl": "https://www.figure.ai",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.figure.ai/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.figure.ai/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "figure",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -623,14 +857,22 @@
         "url": "https://bostondynamics.com/blog",
         "baseUrl": "https://bostondynamics.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://bostondynamics.com/blog"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://bostondynamics.com/blog"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "boston-dynamics",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "博客", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "博客",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -642,14 +884,23 @@
         "url": "https://www.1x.tech/discover",
         "baseUrl": "https://www.1x.tech",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.1x.tech/discover", "https://www.1x.tech/posts"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.1x.tech/discover",
+          "https://www.1x.tech/posts"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "1x",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -661,14 +912,22 @@
         "url": "https://apptronik.com/company/press-releases",
         "baseUrl": "https://apptronik.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://apptronik.com"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://apptronik.com"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "apptronik",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -680,14 +939,22 @@
         "url": "https://www.sanctuary.ai/news",
         "baseUrl": "https://www.sanctuary.ai",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.sanctuary.ai/news", "https://www.sanctuary.ai/resources"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://sanctuary.ai/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "sanctuary",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -699,14 +966,23 @@
         "url": "https://www.skild.ai/blogs",
         "baseUrl": "https://www.skild.ai",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.skild.ai/blogs", "https://www.skild.ai/blog"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.skild.ai/blogs",
+          "https://www.skild.ai/blog"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "skild",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "博客", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "博客",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -718,14 +994,22 @@
         "url": "https://fieldai.com/news",
         "baseUrl": "https://fieldai.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://fieldai.com/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://fieldai.com/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "field-ai",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -737,14 +1021,22 @@
         "url": "https://www.dexterity.ai/blog",
         "baseUrl": "https://www.dexterity.ai",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.dexterity.ai/blog"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.dexterity.ai/blog"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "dexterity",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "博客", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "博客",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -756,14 +1048,22 @@
         "url": "https://www.robust.ai/news",
         "baseUrl": "https://www.robust.ai",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.robust.ai/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.robust.ai/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "robust-ai",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -775,14 +1075,22 @@
         "url": "https://www.standardbots.com/blog",
         "baseUrl": "https://www.standardbots.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.standardbots.com/blog"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.standardbots.com/blog"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "standard-bots",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "博客", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "博客",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -791,19 +1099,29 @@
       "name": "Agility Robotics 新闻",
       "kind": "web_list",
       "config": {
-        "url": "https://agilityrobotics.com/latest-press",
+        "url": "https://agilityrobotics.com/press-releases",
         "baseUrl": "https://agilityrobotics.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://agilityrobotics.com/latest-press", "https://agilityrobotics.com/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://agilityrobotics.com/press-releases",
+          "https://agilityrobotics.com/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "agility",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-unitree-news",
@@ -813,14 +1131,23 @@
         "url": "https://www.unitree.com/cn/news",
         "baseUrl": "https://www.unitree.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.unitree.com/cn/news", "https://www.unitree.com/cn/about"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.unitree.com/cn/news",
+          "https://www.unitree.com/cn/about"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "unitree",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -832,14 +1159,23 @@
         "url": "https://www.ubtrobot.com/cn/about/news",
         "baseUrl": "https://www.ubtrobot.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.ubtrobot.com/cn/about/news", "https://www.ubtrobot.com/cn/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.ubtrobot.com/cn/about/news",
+          "https://www.ubtrobot.com/cn/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "ubtech",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -851,14 +1187,23 @@
         "url": "https://www.galbot.com/news",
         "baseUrl": "https://www.galbot.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.galbot.com/news", "https://mp.weixin.qq.com"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.galbot.com/news",
+          "https://mp.weixin.qq.com"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "galbot",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -870,14 +1215,23 @@
         "url": "https://www.limxdynamics.com/zh/news",
         "baseUrl": "https://www.limxdynamics.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.limxdynamics.com/zh/news", "https://www.limxdynamics.com/en/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.limxdynamics.com/zh/news",
+          "https://www.limxdynamics.com/en/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "limx",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -889,16 +1243,26 @@
         "url": "https://www.lejugym.com/en/news",
         "baseUrl": "https://www.lejugym.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.lejugym.com/en/news", "https://www.lejugym.com/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.lejugym.com/en/news",
+          "https://www.lejugym.com/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "leju",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-paxini-news",
@@ -908,16 +1272,26 @@
         "url": "https://www.paxini.com/cn/news",
         "baseUrl": "https://www.paxini.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.paxini.com/cn/news", "https://www.paxini.com/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.paxini.com/cn/news",
+          "https://www.paxini.com/news"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "paxini",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-deeprobotics-news",
@@ -927,16 +1301,26 @@
         "url": "https://www.deeprobotics.cn/robot/index/news.html",
         "baseUrl": "https://www.deeprobotics.cn",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.deeprobotics.cn/robot/index/news", "https://www.deeprobotics.cn/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://www.deeprobotics.cn/robot/index/news",
+          "https://mp.weixin.qq.com"
+        ],
+        "detail": {
+          "maxFetches": 5
+        }
       },
       "tier": "T1",
       "owner_entity_id": "deeprobotics",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "wl-ai2-news",
@@ -946,16 +1330,28 @@
         "url": "https://www.ai2robotics.com/news/",
         "baseUrl": "https://www.ai2robotics.com",
         "parseMode": "html",
-        "allowUrlPrefixes": ["https://www.ai2robotics.com/news"],
-        "detail": { "maxFetches": 5 }
+        "allowUrlPrefixes": [
+          "https://ai2robotics.com/",
+          "https://www.ai2robotics.com/"
+        ],
+        "detail": {
+          "maxFetches": 5
+        },
+        "itemSelector": "article.elementor-post",
+        "publishedAtSelector": ".elementor-post-date"
       },
       "tier": "T1",
       "owner_entity_id": "ai2-robotics",
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "tags": [
+        "官方",
+        "新闻页",
+        "选择器待试抓"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "rss-cnx-software",
@@ -963,13 +1359,17 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.cnx-software.com/feed/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": ["媒体"],
+      "tags": [
+        "媒体"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -979,13 +1379,18 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://hackaday.com/feed/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": ["媒体", "社区"],
+      "tags": [
+        "媒体",
+        "社区"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -995,13 +1400,17 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.therobotreport.com/feed/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": ["媒体"],
+      "tags": [
+        "媒体"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -1011,13 +1420,17 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://spectrum.ieee.org/feeds/topic/robotics.rss",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": ["媒体"],
+      "tags": [
+        "媒体"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -1027,13 +1440,17 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://techcrunch.com/category/robotics/feed/",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": ["媒体"],
+      "tags": [
+        "媒体"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -1043,13 +1460,17 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.qbitai.com/feed",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": ["媒体"],
+      "tags": [
+        "媒体"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -1059,13 +1480,17 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.leiphone.com/feed",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["媒体"],
+      "tags": [
+        "媒体"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -1075,15 +1500,21 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.jiqizhixin.com/rss",
-        "_aihot": { "initialBackfillLimit": 8 }
+        "_aihot": {
+          "initialBackfillLimit": 8
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": ["媒体", "待验证"],
+      "tags": [
+        "媒体",
+        "待验证"
+      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": false
     },
     {
       "id": "json-hf-daily-papers",
@@ -1091,20 +1522,31 @@
       "kind": "json_list",
       "config": {
         "url": "https://huggingface.co/api/daily_papers",
-        "titlePaths": ["paper.title"],
-        "summaryPaths": ["paper.summary"],
+        "titlePaths": [
+          "paper.title"
+        ],
+        "summaryPaths": [
+          "paper.summary"
+        ],
         "summaryIsBody": true,
         "publishedAtPath": "paper.publishedAt",
         "urlTemplate": "https://huggingface.co/papers/{paper.id}",
         "externalIdPath": "paper.id",
-        "minNumeric": { "path": "paper.upvotes", "min": 5 },
-        "_aihot": { "initialBackfillLimit": 10 }
+        "minNumeric": {
+          "path": "paper.upvotes",
+          "min": 5
+        },
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["论文"],
+      "tags": [
+        "论文"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
@@ -1114,13 +1556,635 @@
       "kind": "rss",
       "config": {
         "feedUrl": "https://rss.arxiv.org/rss/cs.RO",
-        "_aihot": { "initialBackfillLimit": 10 }
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 360,
-      "tags": ["论文"],
+      "tags": [
+        "论文"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-54e862e80381",
+      "name": "芯板坊（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_54e862e80381",
+        "nickname": "芯板坊",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-2b7242cbf5dc",
+      "name": "小智学长嵌入式（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_2b7242cbf5dc",
+        "nickname": "小智学长嵌入式",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-bc5370f528eb",
+      "name": "立创开源硬件平台（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_bc5370f528eb",
+        "nickname": "立创开源硬件平台",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-577eb94b3c14",
+      "name": "strongerHuang（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_577eb94b3c14",
+        "nickname": "strongerHuang",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-e94771d9c1d4",
+      "name": "单片机那点事（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_e94771d9c1d4",
+        "nickname": "单片机那点事",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-49720a2f8df9",
+      "name": "玩转单片机与嵌入式（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_49720a2f8df9",
+        "nickname": "玩转单片机与嵌入式",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-5617c1b503e7",
+      "name": "IoT物联网技术（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_5617c1b503e7",
+        "nickname": "IoT物联网技术",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-5f3852389188",
+      "name": "白搞电子（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_5f3852389188",
+        "nickname": "白搞电子",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-ba05ecf56669",
+      "name": "嵌入式Linux（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_ba05ecf56669",
+        "nickname": "嵌入式Linux",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-4953aa739f5a",
+      "name": "嵌入式专栏（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_4953aa739f5a",
+        "nickname": "嵌入式专栏",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-ac79b572216c",
+      "name": "嵌入式大杂烩（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_ac79b572216c",
+        "nickname": "嵌入式大杂烩",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-c472c2199c88",
+      "name": "嵌入式微处理器（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_c472c2199c88",
+        "nickname": "嵌入式微处理器",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-47d2060774a5",
+      "name": "嵌入式杂谈（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_47d2060774a5",
+        "nickname": "嵌入式杂谈",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-8d84fb453221",
+      "name": "立芯嵌入式（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_8d84fb453221",
+        "nickname": "立芯嵌入式",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-5b0b6bcc7a39",
+      "name": "机器人大讲堂（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_5b0b6bcc7a39",
+        "nickname": "机器人大讲堂"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-0cf01c20cb6b",
+      "name": "高工机器人（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_0cf01c20cb6b",
+        "nickname": "高工机器人"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-108f2a2a27f4",
+      "name": "新智元（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_108f2a2a27f4",
+        "nickname": "新智元"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-7c1ec21c2a35",
+      "name": "降功耗找合宙（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_7c1ec21c2a35",
+        "nickname": "降功耗找合宙",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "luat",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-644407a4fb6a",
+      "name": "智元AGIBOT（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_644407a4fb6a",
+        "nickname": "智元AGIBOT",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "agibot",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-95851b349081",
+      "name": "傅利叶智能（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_95851b349081",
+        "nickname": "傅利叶智能",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "fourier",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-0d836ccf937c",
+      "name": "星动纪元（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_0d836ccf937c",
+        "nickname": "星动纪元",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "robotera",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-04262abc01d1",
+      "name": "穹彻智能（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_04262abc01d1",
+        "nickname": "穹彻智能",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "noematrix",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-1338391fca31",
+      "name": "开普勒人形机器人（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_1338391fca31",
+        "nickname": "开普勒人形机器人",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "kepler",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-c47f0c4aaeab",
+      "name": "它石智航（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_c47f0c4aaeab",
+        "nickname": "它石智航",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "tarsrobotics",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-6c5b8031321c",
+      "name": "灵心巧手（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_6c5b8031321c",
+        "nickname": "灵心巧手",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "linkerbot",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": false
+    },
+    {
+      "id": "mp-083556da65a7",
+      "name": "他山科技（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_083556da65a7",
+        "nickname": "他山科技",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "tashan",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-e8f3f329f365",
+      "name": "数字华夏（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_e8f3f329f365",
+        "nickname": "数字华夏",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "digital-china",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-81d92777558b",
+      "name": "NOETIX松延动力（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_81d92777558b",
+        "nickname": "NOETIX松延动力",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "noetix",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-e06bd291f946",
+      "name": "星海图（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_e06bd291f946",
+        "nickname": "星海图",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "galaxea",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-0ed81f957c26",
+      "name": "自变量机器人（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_0ed81f957c26",
+        "nickname": "自变量机器人",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "x-square",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "mp-5125d6206a75",
+      "name": "云深处科技（公众号）",
+      "kind": "mp_account",
+      "config": {
+        "ghid": "gh_5125d6206a75",
+        "nickname": "云深处科技",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "deeprobotics",
+      "participation_mode": "editorial",
+      "interval_minutes": 1440,
+      "tags": [
+        "公众号",
+        "微信"
+      ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     }
