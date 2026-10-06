@@ -1,368 +1,1126 @@
 {
-  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里新建、修改和暂停。字段说明见 docs/customize.md。",
   "sources": [
     {
-      "id": "rss-openai-news",
-      "name": "OpenAI News",
+      "id": "gh-espressif-esp-idf",
+      "name": "乐鑫 ESP-IDF · Releases",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://openai.com/news/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://github.com/espressif/esp-idf/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
-      "owner_entity_id": "openai",
+      "owner_entity_id": "espressif",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
+      "tags": ["官方", "SDK"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-google-deepmind",
-      "name": "Google DeepMind",
+      "id": "gh-hpmicro-hpm-sdk",
+      "name": "先楫 hpm_sdk · Releases",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://deepmind.google/blog/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://github.com/hpmicro/hpm_sdk/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
-      "owner_entity_id": "google",
+      "owner_entity_id": "hpmicro",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
+      "tags": ["官方", "SDK"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-google-research",
-      "name": "Google Research",
+      "id": "gh-bouffalo-sdk",
+      "name": "博流 bouffalo_sdk · Releases",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://research.google/blog/rss/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://github.com/bouffalolab/bouffalo_sdk/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
-      "owner_entity_id": "google",
+      "owner_entity_id": "bouffalo",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
+      "tags": ["官方", "SDK"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-hugging-face",
-      "name": "Hugging Face Blog",
+      "id": "gh-sifli-sdk",
+      "name": "思澈 SiFli-SDK · Releases",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://huggingface.co/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://github.com/OpenSiFli/SiFli-SDK/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
-      "owner_entity_id": "hugging-face",
+      "owner_entity_id": "sifli",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "开源"
-      ],
+      "tags": ["官方", "SDK"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-microsoft-research",
-      "name": "Microsoft Research",
+      "id": "gh-artinchip-luban-lite",
+      "name": "匠芯创 luban-lite · Releases",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.microsoft.com/en-us/research/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://github.com/artinchip/luban-lite/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
-      "owner_entity_id": "microsoft",
+      "owner_entity_id": "artinchip",
       "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
+      "interval_minutes": 180,
+      "tags": ["官方", "SDK"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-nvidia-blog",
-      "name": "NVIDIA Blog",
+      "id": "gh-luatos",
+      "name": "合宙 LuatOS · Releases",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://blogs.nvidia.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://github.com/openLuat/LuatOS/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "luat",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "SDK"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-canaan-canmv-k230",
+      "name": "嘉楠 CanMV-K230 · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/kendryte/canmv_k230/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "canaan",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "SDK"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-sophgo-tpu-mlir",
+      "name": "算能 tpu-mlir · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/sophgo/tpu-mlir/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "sophgo",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "工具链"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-t-head-openc910",
+      "name": "平头哥 openc910 · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/T-head-Semi/openc910/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "t-head",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "开源"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-nxp-mcux-sdk",
+      "name": "恩智浦 MCUXpresso SDK · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/NXPmicro/mcux-sdk/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "nxp",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "SDK"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-raspberrypi-linux",
+      "name": "树莓派 linux 内核 · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/raspberrypi/linux/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "raspberrypi",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "内核"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-zephyr-releases",
+      "name": "Zephyr RTOS · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/zephyrproject-rtos/zephyr/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "RTOS"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-freertos-kernel",
+      "name": "FreeRTOS Kernel · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/FreeRTOS/FreeRTOS-Kernel/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "RTOS"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-nuttx-releases",
+      "name": "Apache NuttX · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/apache/nuttx/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "RTOS"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "gh-rt-thread-releases",
+      "name": "RT-Thread · Releases",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/RT-Thread/rt-thread/releases.atom",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "RTOS"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-raspberrypi-blog",
+      "name": "树莓派官方博客",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.raspberrypi.com/blog/feed/",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "raspberrypi",
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": ["官方", "博客"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-nvidia-dev-blog",
+      "name": "NVIDIA 开发者博客（Jetson/机器人）",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://developer.nvidia.com/blog/feed/",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
       "owner_entity_id": "nvidia",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
+      "tags": ["官方", "博客"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-aws-ml",
-      "name": "AWS Machine Learning Blog",
+      "id": "rss-zephyr-blog",
+      "name": "Zephyr 项目博客",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://aws.amazon.com/blogs/machine-learning/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://zephyrproject.org/feed/",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "教程"
-      ],
+      "tags": ["官方", "博客"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-github-ai",
-      "name": "GitHub Blog · AI & ML",
+      "id": "rss-kernel-kdist",
+      "name": "kernel.org 内核发布",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://github.blog/ai-and-ml/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://kernel.org/feeds/kdist.xml",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
+      "tags": ["官方", "内核"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-mistral",
-      "name": "Mistral AI",
+      "id": "rss-yocto-blog",
+      "name": "Yocto 项目博客",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://mistral.ai/news/rss",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-bair",
-      "name": "Berkeley AI Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://bair.berkeley.edu/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://www.yoctoproject.org/feed/",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T1",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": [
-        "研究"
-      ],
+      "tags": ["官方", "博客"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-the-verge-ai",
-      "name": "The Verge · AI",
+      "id": "rss-booster-medium",
+      "name": "加速进化官方博客（Medium）",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://boosterobotics.medium.com/feed",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
-      "tier": "T2",
-      "owner_entity_id": null,
+      "tier": "T1",
+      "owner_entity_id": "booster",
       "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
+      "interval_minutes": 120,
+      "tags": ["官方", "博客"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-techcrunch-ai",
-      "name": "TechCrunch · AI",
+      "id": "rss-lwn",
+      "name": "LWN.net",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://techcrunch.com/category/artificial-intelligence/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-ars-technica-ai",
-      "name": "Ars Technica · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://arstechnica.com/ai/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-mit-tech-review-ai",
-      "name": "MIT Technology Review · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://lwn.net/headlines/rss",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "媒体"
-      ],
+      "tags": ["媒体"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-the-decoder",
-      "name": "The Decoder",
+      "id": "rss-freertos-forum",
+      "name": "FreeRTOS 社区论坛",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://the-decoder.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://forums.freertos.org/latest.rss",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["社区"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-rockchip-news",
+      "name": "瑞芯微官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.rock-chips.com/a/cn/news/rockchip/index.html",
+        "baseUrl": "https://www.rock-chips.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.rock-chips.com/a/cn/news/"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "rockchip",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-gigadevice-news",
+      "name": "兆易创新官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.gigadevice.com/about/news-and-event/news",
+        "baseUrl": "https://www.gigadevice.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.gigadevice.com/about/news-and-event"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "gigadevice",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-nations-news",
+      "name": "国民技术官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.nationstech.com/about/news/information/",
+        "baseUrl": "https://www.nationstech.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.nationstech.com/about/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "nations",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-allwinner-news",
+      "name": "全志科技官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.allwinnertech.com/index.php?c=news&a=index&pid=2",
+        "baseUrl": "https://www.allwinnertech.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.allwinnertech.com/index.php?c=news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "allwinner",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-hisilicon-press",
+      "name": "海思官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.hisilicon.com/cn/about-us/press",
+        "baseUrl": "https://www.hisilicon.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.hisilicon.com/cn/about-us/press", "https://www.hisilicon.com/cn/media-kit"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "hisilicon",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-wch-news",
+      "name": "沁恒微电子官网",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.wch.cn/",
+        "baseUrl": "https://www.wch.cn",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.wch.cn/news", "https://www.wch.cn/new-product"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "wch",
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-sifli-news",
+      "name": "思澈科技官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.sifli.com/zh-hans/news-list",
+        "baseUrl": "https://www.sifli.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.sifli.com/zh-hans/news", "https://www.sifli.com/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "sifli",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-artinchip-news",
+      "name": "匠芯创官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.artinchip.com/News.html",
+        "baseUrl": "https://www.artinchip.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.artinchip.com/News", "https://www.artinchip.com/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "artinchip",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-espressif-newsroom",
+      "name": "乐鑫 Newsroom",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.espressif.com/en/company/newsroom/news",
+        "baseUrl": "https://www.espressif.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.espressif.com/en/company/newsroom", "https://www.espressif.com/en/media"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "espressif",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-microchip-news",
+      "name": "Microchip 新闻中心",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.microchip.com/en-us/about/news-releases.html",
+        "baseUrl": "https://www.microchip.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.microchip.com/en-us/about/news-releases"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "microchip",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-st-newsroom",
+      "name": "意法半导体 Newsroom",
+      "kind": "web_list",
+      "config": {
+        "url": "https://newsroom.st.com",
+        "baseUrl": "https://newsroom.st.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://newsroom.st.com"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "st",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": ["官方", "新闻页", "反爬风险", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-nxp-media",
+      "name": "恩智浦新闻室",
+      "kind": "web_list",
+      "config": {
+        "url": "https://media.nxp.com",
+        "baseUrl": "https://media.nxp.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://media.nxp.com"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "nxp",
+      "participation_mode": "editorial",
+      "interval_minutes": 240,
+      "tags": ["官方", "新闻页", "反爬风险", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-figure-news",
+      "name": "Figure AI 新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.figure.ai/news",
+        "baseUrl": "https://www.figure.ai",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.figure.ai/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "figure",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-bostondynamics-blog",
+      "name": "波士顿动力博客",
+      "kind": "web_list",
+      "config": {
+        "url": "https://bostondynamics.com/blog",
+        "baseUrl": "https://bostondynamics.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://bostondynamics.com/blog"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "boston-dynamics",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "博客", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-1x-discover",
+      "name": "1X Technologies 新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.1x.tech/discover",
+        "baseUrl": "https://www.1x.tech",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.1x.tech/discover", "https://www.1x.tech/posts"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "1x",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-apptronik-press",
+      "name": "Apptronik 新闻稿",
+      "kind": "web_list",
+      "config": {
+        "url": "https://apptronik.com/company/press-releases",
+        "baseUrl": "https://apptronik.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://apptronik.com"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "apptronik",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-sanctuary-news",
+      "name": "Sanctuary AI 新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.sanctuary.ai/news",
+        "baseUrl": "https://www.sanctuary.ai",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.sanctuary.ai/news", "https://www.sanctuary.ai/resources"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "sanctuary",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-skild-blogs",
+      "name": "Skild AI 博客",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.skild.ai/blogs",
+        "baseUrl": "https://www.skild.ai",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.skild.ai/blogs", "https://www.skild.ai/blog"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "skild",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "博客", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-fieldai-news",
+      "name": "Field AI 新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://fieldai.com/news",
+        "baseUrl": "https://fieldai.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://fieldai.com/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "field-ai",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-dexterity-blog",
+      "name": "Dexterity 博客",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.dexterity.ai/blog",
+        "baseUrl": "https://www.dexterity.ai",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.dexterity.ai/blog"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "dexterity",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "博客", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-robust-ai-news",
+      "name": "Robust AI 新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.robust.ai/news",
+        "baseUrl": "https://www.robust.ai",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.robust.ai/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "robust-ai",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-standardbots-blog",
+      "name": "Standard Bots 博客",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.standardbots.com/blog",
+        "baseUrl": "https://www.standardbots.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.standardbots.com/blog"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "standard-bots",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "博客", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-agility-press",
+      "name": "Agility Robotics 新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://agilityrobotics.com/latest-press",
+        "baseUrl": "https://agilityrobotics.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://agilityrobotics.com/latest-press", "https://agilityrobotics.com/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "agility",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-unitree-news",
+      "name": "宇树科技官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.unitree.com/cn/news",
+        "baseUrl": "https://www.unitree.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.unitree.com/cn/news", "https://www.unitree.com/cn/about"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "unitree",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-ubtech-news",
+      "name": "优必选官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.ubtrobot.com/cn/about/news",
+        "baseUrl": "https://www.ubtrobot.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.ubtrobot.com/cn/about/news", "https://www.ubtrobot.com/cn/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "ubtech",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-galbot-news",
+      "name": "银河通用官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.galbot.com/news",
+        "baseUrl": "https://www.galbot.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.galbot.com/news", "https://mp.weixin.qq.com"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "galbot",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-limx-news",
+      "name": "逐际动力官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.limxdynamics.com/zh/news",
+        "baseUrl": "https://www.limxdynamics.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.limxdynamics.com/zh/news", "https://www.limxdynamics.com/en/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "limx",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-leju-news",
+      "name": "乐聚机器人官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.lejugym.com/en/news",
+        "baseUrl": "https://www.lejugym.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.lejugym.com/en/news", "https://www.lejugym.com/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "leju",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-paxini-news",
+      "name": "帕西尼感知官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.paxini.com/cn/news",
+        "baseUrl": "https://www.paxini.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.paxini.com/cn/news", "https://www.paxini.com/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "paxini",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-deeprobotics-news",
+      "name": "云深处科技官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.deeprobotics.cn/robot/index/news.html",
+        "baseUrl": "https://www.deeprobotics.cn",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.deeprobotics.cn/robot/index/news", "https://www.deeprobotics.cn/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "deeprobotics",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "wl-ai2-news",
+      "name": "智平方官网新闻",
+      "kind": "web_list",
+      "config": {
+        "url": "https://www.ai2robotics.com/news/",
+        "baseUrl": "https://www.ai2robotics.com",
+        "parseMode": "html",
+        "allowUrlPrefixes": ["https://www.ai2robotics.com/news"],
+        "detail": { "maxFetches": 5 }
+      },
+      "tier": "T1",
+      "owner_entity_id": "ai2-robotics",
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "tags": ["官方", "新闻页", "选择器待试抓"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-cnx-software",
+      "name": "CNX Software",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.cnx-software.com/feed/",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
+      "tags": ["媒体"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-simon-willison",
-      "name": "Simon Willison",
+      "id": "rss-hackaday",
+      "name": "Hackaday",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://simonwillison.net/atom/everything/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://hackaday.com/feed/",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": ["媒体", "社区"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-the-robot-report",
+      "name": "The Robot Report",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.therobotreport.com/feed/",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": ["媒体"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-ieee-spectrum-robotics",
+      "name": "IEEE Spectrum · Robotics",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://spectrum.ieee.org/feeds/topic/robotics.rss",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": ["媒体"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-techcrunch-robotics",
+      "name": "TechCrunch · Robotics",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://techcrunch.com/category/robotics/feed/",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": ["媒体"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-qbitai",
+      "name": "量子位",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.qbitai.com/feed",
+        "_aihot": { "initialBackfillLimit": 8 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": ["媒体"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-leiphone",
+      "name": "雷锋网",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.leiphone.com/feed",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "个人"
-      ],
+      "tags": ["媒体"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-import-ai",
-      "name": "Import AI",
+      "id": "rss-jiqizhixin",
+      "name": "机器之心",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://importai.substack.com/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "feedUrl": "https://www.jiqizhixin.com/rss",
+        "_aihot": { "initialBackfillLimit": 8 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "个人",
-        "周刊"
-      ],
+      "interval_minutes": 120,
+      "tags": ["媒体", "待验证"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-latent-space",
-      "name": "Latent Space",
-      "kind": "rss",
+      "id": "json-hf-daily-papers",
+      "name": "Hugging Face 每日论文",
+      "kind": "json_list",
       "config": {
-        "feedUrl": "https://www.latent.space/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
+        "url": "https://huggingface.co/api/daily_papers",
+        "titlePaths": ["paper.title"],
+        "summaryPaths": ["paper.summary"],
+        "summaryIsBody": true,
+        "publishedAtPath": "paper.publishedAt",
+        "urlTemplate": "https://huggingface.co/papers/{paper.id}",
+        "externalIdPath": "paper.id",
+        "minNumeric": { "path": "paper.upvotes", "min": 5 },
+        "_aihot": { "initialBackfillLimit": 10 }
       },
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "个人"
-      ],
+      "interval_minutes": 360,
+      "tags": ["论文"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-arxiv-cs-ro",
+      "name": "arXiv cs.RO 机器人学",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://rss.arxiv.org/rss/cs.RO",
+        "_aihot": { "initialBackfillLimit": 10 }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 360,
+      "tags": ["论文"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     }
