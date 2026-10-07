@@ -190,15 +190,30 @@ export function reportText(title: string, summary: string | null | undefined): s
   return `${title}。${(summary ?? "").slice(0, 300)}`;
 }
 
-/** Lexical stand-in for cosine when embeddings are off (no embedding key): shared character bigrams. */
+/** Lexical stand-in for cosine when embeddings are off (no embedding key). Character bigrams of the
+ *  full text barely separate rewritten coverage of one event from unrelated noise (both land around
+ *  0.2), so the score is built from content tokens instead: product and company names and version
+ *  strings as whole ASCII words (heavier when they carry digits), standalone numbers (money, counts),
+ *  and Chinese bigrams as the light filler. Same-event reports share the heavy tokens; prose overlap
+ *  between unrelated articles mostly shares light ones. */
 export function lexicalSimilarity(a: string, b: string): number {
-  const grams = (s: string) => {
-    const chars = [...s.replace(/\s+/g, "")];
-    return new Set(chars.map((_c, i) => chars.slice(i, i + 2).join("")).filter((g) => g.length === 2));
+  const tokens = (s: string): Map<string, number> => {
+    const out = new Map<string, number>();
+    const add = (t: string, w: number) => out.set(t, (out.get(t) ?? 0) + w);
+    for (const m of s.matchAll(/[A-Za-z][A-Za-z0-9]*(?:[.\-_][A-Za-z0-9]+)*/g)) {
+      const t = m[0].toLowerCase();
+      if (t.length < 2) continue;
+      add(t, /\d/.test(t) ? 3 : 2);
+    }
+    for (const m of s.matchAll(/\d+(?:\.\d+)?/g)) add(m[0], 3);
+    const zh = s.replace(/[^一-鿿]/g, "");
+    for (let i = 0; i < zh.length - 1; i++) add(zh.slice(i, i + 2), 1);
+    return out;
   };
-  const g = grams(a), h = grams(b);
+  const g = tokens(a), h = tokens(b);
   if (!g.size || !h.size) return 0;
-  let inter = 0;
-  for (const x of g) if (h.has(x)) inter++;
-  return inter / Math.min(g.size, h.size);
+  let inter = 0, wg = 0, wh = 0;
+  for (const [t, w] of g) { wg += w; if (h.has(t)) inter += Math.min(w, h.get(t)!); }
+  for (const w of h.values()) wh += w;
+  return inter / Math.min(wg, wh);
 }

@@ -78,7 +78,7 @@ Docker 起容器有两种方式：
 
 ```bash
 cd /Users/hongchenke/Documents/Github/embedded_hot
-tar --exclude node_modules --exclude .data --exclude .env --exclude .git -czf /tmp/embhot.tar.gz .
+COPYFILE_DISABLE=1 tar --exclude node_modules --exclude .data --exclude .env --exclude .git --exclude '._*' --exclude .DS_Store -czf /tmp/embhot.tar.gz .
 ```
 
 得到 `/tmp/embhot.tar.gz`（几十 MB）——这就是要传上服务器的"安装包"。四个排除项很重要：`node_modules`（依赖服务器上重新装）、`.data`（本地数据，要迁到服务器见第 11 节）、`.env`（本地配置不要带上服务器）、`.git`（用不上）。
@@ -313,7 +313,7 @@ docker compose exec -T db pg_dump -U aihot aihot | gzip > backup-$(date +%F).sql
 
 ```bash
 cd /Users/hongchenke/Documents/Github/embedded_hot
-tar --exclude node_modules --exclude .data --exclude .env --exclude .git -czf /tmp/embhot.tar.gz .
+COPYFILE_DISABLE=1 tar --exclude node_modules --exclude .data --exclude .env --exclude .git --exclude '._*' --exclude .DS_Store -czf /tmp/embhot.tar.gz .
 ```
 
 ### 9.2 换上新代码（宝塔文件管理）
@@ -437,6 +437,50 @@ docker compose restart api worker web # 恢复完再启动
 
 ---
 
+## 12. 海外信源抓不到：服务器代理（mihomo）
+
+大陆服务器直连海外站点会抖动/被墙（Hugging Face、Medium 稳定超时；GitHub 时好时坏；DNS 污染会解析到假 IP）。**本地开发机有 Clash 所以本地测试全正常，但服务器是独立的网络环境，需要自己的出口。** 项目原生支持：`.env` 的 `EGRESS_PROXY_URL`——只有非 `.cn` 的信源走它，国内源、模型接口、付费 API（Dajiala 等）都直连。
+
+### 12.1 部署 mihomo（Clash 内核，Docker 方式）
+
+1. 把你的 Clash 订阅配置存到 `/etc/mihomo/config.yaml`（`chmod 600`）。
+2. 检查/修改配置：`allow-lan: true`；把最终规则 `MATCH,其他（默认）` 改成指向你的主力代理组（如 `MATCH,⚡️ 代理`），原因见 12.3 的坑 3。
+3. 起容器（网络名是 compose 项目名加 `_default`）：
+
+```bash
+docker run -d --name mihomo --restart unless-stopped --network aihot_default \
+  -v /etc/mihomo:/root/.config/mihomo -p 127.0.0.1:7890:7890 metacubex/mihomo:latest
+```
+
+### 12.2 接入站点
+
+```bash
+cd /www/dk_project/dk_app/dk_embhot
+printf '\n%s\n' 'EGRESS_PROXY_URL=http://mihomo:7890' >> .env   # 用 printf 防坑 1
+docker compose up -d --force-recreate api worker               # 必须重建，防坑 2
+```
+
+### 12.3 三个实测踩过的坑
+
+1. **`.env` 末尾没有换行符时，`>>` 追加会接到上一行行尾**：碰上注释行就变成注释的一部分，变量根本不存在。追加后 `tail -2 .env` 确认变量独占一行；用 `printf '\n%s\n' '...' >> .env` 可防。
+2. **`docker compose restart` 不重读 `.env`**：环境变量是容器创建时注入的。改 `.env` 后必须 `docker compose up -d --force-recreate <服务>`，再 `docker compose exec <服务> printenv <变量>` 验证真的进去了。
+3. **mihomo 的 MATCH 组要选对**：站点防 DNS-rebinding 的设计是「先 DoH 解析、再 CONNECT 解析出的 **IP**」，mihomo 看不到域名只按 IP 分流——**域名规则（DOMAIN-SUFFIX）不生效**，流量走最终 `MATCH` 的组。目标站（HF/Medium）会拒某些节点的 IP，所以要让 MATCH 指向能通目标站的那个节点组。排查手法：`curl -x http://127.0.0.1:7890 <url>`（域名 CONNECT，走域名规则）通、真实 fetch（IP CONNECT）不通，就是两组节点的差异。
+
+### 12.4 验证（worker 里跑真实抓取代码）
+
+```bash
+docker compose exec -T worker node --input-type=module -e "
+const { guardedFetch } = await import('/app/packages/backend/src/lib/http-fetch.ts');
+const r = await guardedFetch('https://huggingface.co/api/daily_papers', { timeoutMs: 30000 });
+console.log(r.status);"
+```
+
+### 12.5 对方 WAF 拦截的源（代理也救不了）
+
+Cloudflare JS 盾（如 The Robot Report）和 IP 层 403（如乐鑫 Newsroom）从任何出口都抓不到正文，浏览器 UA 也没用——在后台暂停这些源即可，别硬试。
+
+---
+
 ## 附录 A：命令到底做了什么（看懂即可，不用敲）
 
 服务器上的 `docker compose up -d --build`（= 宝塔的「重建」）逐行翻译：
@@ -477,6 +521,19 @@ docker compose stop                 # 全停
 
 **Q：本地测试产生的数据会随打包带上去吗？**
 不会。数据在本地 PostgreSQL 里（不在项目目录），`.data`、`.env` 打包时也排除了，服务器是空库起步。想带数据上去见第 11 节（导出 → 上传 → 恢复）。
+
+**Q：迁移报 `migration ._0001_core.sql failed: invalid message format`？**
+macOS 打包混入的 `._*` 元数据文件被当成了迁移 SQL。服务器上 `find <编排目录> -name '._*' -delete` 清掉，重新「重建」。新打包命令已带 `COPYFILE_DISABLE=1` 和 `--exclude '._*'` 预防。
+
+**Q：setup 报 `password authentication failed for user "aihot"`（28P01）？**
+改过 `.env` 的 `POSTGRES_PASSWORD` 时会发生：数据卷里存的是**第一次**初始化的旧密码，`.env` 换新值不会自动改数据库里的密码（容器 env 变了也没用）。修法一条命令（在编排目录执行）：
+
+```bash
+PW=$(grep '^POSTGRES_PASSWORD=' .env | cut -d= -f2-)
+docker exec aihot-db-1 psql -U aihot -d aihot -c "ALTER USER aihot WITH PASSWORD '$PW';"
+```
+
+验证密码时注意：容器里 `psql` 不加 `-h` 走 Unix socket（trust 认证，**不查密码**，会假阳性）；要加 `-h 127.0.0.1` 走 TCP 才是真认证。
 
 **Q：「重建」会丢数据吗？**
 不会。数据在 Docker 卷（`db` 数据、上传文件）里，重建/更新只换代码和镜像。只有 `docker compose down -v` 才会删数据（宝塔界面上别点「删除」编排，那可能会连卷一起删，删前看清提示）。

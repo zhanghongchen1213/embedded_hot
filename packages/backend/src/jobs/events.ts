@@ -28,7 +28,7 @@ export async function sweepUngrouped(): Promise<{ enqueued: number }> {
       SELECT a.id FROM articles a JOIN sources s ON s.id = a.source_id
       WHERE a.grouping_status = 'pending' AND a.created_at < now() - interval '3 minutes'
         AND s.participation_mode = 'editorial' AND a.processing_state = 'analyzed' AND EXISTS (
-          SELECT 1 FROM analyses an WHERE an.article_id = a.id AND an.input_revision = a.revision AND an.relevance = 'pass')
+          SELECT 1 FROM analyses an WHERE an.article_id = a.id AND an.input_revision = a.revision AND an.relevance IN ('pass', 'unknown'))
         AND NOT EXISTS (SELECT 1 FROM pgboss.job j WHERE j.name = ${QUEUES.group}
           AND j.data->>'articleId' = a.id AND j.state IN ('created', 'active', 'retry'))
       ORDER BY a.created_at LIMIT 100 FOR UPDATE OF a SKIP LOCKED`;

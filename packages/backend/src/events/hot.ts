@@ -1,4 +1,4 @@
-// Hot ranking: attention over the last 48 hours from independent participants.
+// Hot ranking: attention over the last 7 days from independent participants.
 // Each participant counts once per window (repeat collection does not add heat), decays with a
 // 24-hour half-life, and the source time (not collection time) places evidence in the window.
 import { COMMUNITY_FEEDS } from "@aihot/site";
@@ -54,10 +54,16 @@ export async function storedHotRanking(db: Db = sql): Promise<HotRanking | null>
   return { id: row.id, computedAt: row.computed_at.toISOString(), ruleVersion: row.rule_version, entries: row.entries, coverage: row.evidence };
 }
 
-export const HOT_RULE_VERSION = "heat-v1-48h-halflife24h";
-const WINDOW_HOURS = 48;
+export const HOT_RULE_VERSION = "heat-v2-168h-halflife24h";
+export const HOT_WINDOW_HOURS = 168;
+const WINDOW_HOURS = HOT_WINDOW_HOURS;
 const HALF_LIFE_HOURS = 24;
 const MIN_PARTICIPANTS = 2;
+// Trend swings measured on the 48h window shrink once the window carries a week of decayed mass;
+// scale the thresholds by the geometric mean of the window ratio so up/down keep their meaning.
+const TREND_SCALE = Math.sqrt(48 / WINDOW_HOURS);
+const TREND_FLAT = 0.1 * TREND_SCALE;
+const TREND_RISING = 0.15 * TREND_SCALE;
 
 interface HeatRow {
   story_id: number;
@@ -76,6 +82,8 @@ interface HeatRow {
   /** Participants left out of the comparison (behind, or a source added after the earlier window began). */
   uncomparable: number;
   recent6h: number;
+  /** Participants seen in the last 24 hours: the surge share is measured against this, not the whole window. */
+  recent24h: number;
   editorial_participants: number;
   signal_participants: number;
 }
@@ -130,15 +138,16 @@ export const currentSignals = () => sql`(
 
 /**
  * Heat of every story at `at` (defaults to now) from the current evidence; `behind` marks sources not
- * fully observed. The change compares with six hours before over that time's own 48-hour window, and
+ * fully observed. The change compares with six hours before over that time's own 7-day window, and
  * only over participants observed throughout both: none of their sources behind, and every source
- * already collecting when the earlier window began (a source added since widens what is seen; it
- * adds to the heat, not to its growth).
+ * already collecting for a half-life before the comparison (a source added since widens what is seen;
+ * it adds to the heat, not to its growth).
  */
 export async function heatRows(at: Date, behind: string[] = [], storyIds?: number[]): Promise<HeatRow[]> {
   const prev = new Date(at.getTime() - 6 * 3600 * 1000);
   const nowFrom = sql`${at}::timestamptz - make_interval(hours => ${WINDOW_HOURS})`;
   const prevFrom = sql`${prev}::timestamptz - make_interval(hours => ${WINDOW_HOURS})`;
+  const maturedAt = sql`${prev}::timestamptz - make_interval(hours => ${HALF_LIFE_HOURS})`;
   const decayNow = sql`power(0.5, extract(epoch FROM (${at}::timestamptz - last_at)) / 3600.0 / ${HALF_LIFE_HOURS})`;
   const decayPrev = sql`power(0.5, extract(epoch FROM (${prev}::timestamptz - last_prev)) / 3600.0 / ${HALF_LIFE_HOURS})`;
   const comparable = sql`(NOT behind AND NOT late)`;
@@ -150,7 +159,7 @@ export async function heatRows(at: Date, behind: string[] = [], storyIds?: numbe
              coalesce(bool_or(kind = 'editorial') FILTER (WHERE observed_at > ${nowFrom}), false) AS editorial,
              max(observed_at) FILTER (WHERE observed_at <= ${prev}) AS last_prev,
              bool_or(source_id = ANY(${behind}::text[])) AS behind,
-             bool_or(source_since > ${prevFrom}) AS late
+             bool_or(source_since > ${maturedAt}) AS late
       FROM ${currentSignals()} cs
       WHERE observed_at > ${prevFrom} AND observed_at <= ${at}
         ${storyIds ? sql`AND story_id = ANY(${storyIds}::bigint[])` : sql``}
@@ -165,13 +174,14 @@ export async function heatRows(at: Date, behind: string[] = [], storyIds?: numbe
         count(*) FILTER (WHERE last_at IS NOT NULL AND behind) AS behind_participants,
         count(*) FILTER (WHERE (last_at IS NOT NULL OR last_prev IS NOT NULL) AND NOT ${comparable}) AS uncomparable,
         count(*) FILTER (WHERE first_at > ${prev}) AS recent6h,
+        count(*) FILTER (WHERE last_at > ${at}::timestamptz - make_interval(hours => 24)) AS recent24h,
         count(*) FILTER (WHERE last_at IS NOT NULL AND editorial) AS editorial_participants,
         count(*) FILTER (WHERE last_at IS NOT NULL AND NOT editorial) AS signal_participants
       FROM obs GROUP BY story_id
       HAVING count(*) FILTER (WHERE last_at IS NOT NULL) > 0
     )
     SELECT a.story_id, st.public_id::text AS public_id, st.title, st.first_report_at, st.latest_at,
-           a.participants, a.heat, a.heat_prev, a.heat_obs, a.heat_prev_obs, a.behind_participants, a.uncomparable, a.recent6h, a.editorial_participants, a.signal_participants
+           a.participants, a.heat, a.heat_prev, a.heat_obs, a.heat_prev_obs, a.behind_participants, a.uncomparable, a.recent6h, a.recent24h, a.editorial_participants, a.signal_participants
     FROM agg a JOIN stories st ON st.id = a.story_id
     WHERE st.merged_into IS NULL`;
 }
@@ -222,11 +232,12 @@ export async function computeHotRanking(at = new Date()): Promise<{ id: number; 
     const pct = prev > 0 ? (cur - prev) / prev : null;
     const firstAt = r.first_report_at ?? reports[0]!.at;
     const isNew = at.getTime() - firstAt.getTime() < 6 * 3600 * 1000;
-    const surge = Number(r.recent6h) >= 3 && Number(r.recent6h) / Number(r.participants) >= 0.5;
+    // Surge = a burst of first-time participants dominating the recent conversation, not the whole window.
+    const surge = Number(r.recent6h) >= 3 && Number(r.recent6h) / Math.max(Number(r.recent24h), Number(r.recent6h)) >= 0.5;
     const badges: HotEntry["badges"] = [];
     if (surge) badges.push("surge");
     if (isNew) badges.push("new");
-    if (!surge && pct !== null && pct > 0.15) badges.push("rising");
+    if (!surge && pct !== null && pct > TREND_RISING) badges.push("rising");
     const sourceNames = [...new Set(reporting.map((x) => x.name))].slice(0, 8);
     entries.push({
       rank: entries.length + 1,
@@ -234,7 +245,7 @@ export async function computeHotRanking(at = new Date()): Promise<{ id: number; 
       storyPublicId: r.public_id,
       title: r.title,
       heat,
-      trend: prevAll <= 0 ? "new" : pct === null ? "unknown" : pct > 0.1 ? "up" : pct < -0.1 ? "down" : "flat",
+      trend: prevAll <= 0 ? "new" : pct === null ? "unknown" : pct > TREND_FLAT ? "up" : pct < -TREND_FLAT ? "down" : "flat",
       trendPct: pct === null ? null : Math.round(pct * 1000) / 10,
       badges,
       participantCount: Number(r.participants),
@@ -304,7 +315,7 @@ export async function snapshotHeat(at = new Date()): Promise<{ stories: number; 
 /**
  * A story's heat hour by hour for its page chart: the hours observed in full over the
  * last `days`, each computed from the current evidence of one group of participants, those whose
- * sources were all collecting before the first plotted hour's window began, so the line compares like
+ * sources were already collecting before the first plotted hour, so the line compares like
  * with like across the whole plot. No such participant: no line.
  */
 export async function heatSeries(storyId: number, now = new Date(), days = 7): Promise<Array<{ hour: Date; heat: number; participants: number }>> {
@@ -316,7 +327,7 @@ export async function heatSeries(storyId: number, now = new Date(), days = 7): P
   const rows = await sql<{ participant_key: string; observed_at: Date; source_since: Date }[]>`
     SELECT participant_key, observed_at, source_since FROM ${currentSignals()} cs
     WHERE story_id = ${storyId} AND observed_at > ${new Date(since)} AND observed_at <= ${now}`;
-  const late = new Set(rows.filter((r) => r.source_since.getTime() > since).map((r) => r.participant_key));
+  const late = new Set(rows.filter((r) => r.source_since.getTime() > hours[0]!).map((r) => r.participant_key));
   const times = new Map<string, number[]>();
   for (const r of rows) if (!late.has(r.participant_key)) times.set(r.participant_key, [...(times.get(r.participant_key) ?? []), r.observed_at.getTime()]);
   const series = hours.map((hour) => {

@@ -24,7 +24,7 @@ import { completeReceipt } from "../providers/receipts.ts";
 import { embeddingsAvailable } from "../providers/embeddings.ts";
 import { isHistorical, STALE_ON_DISCOVERY_MS } from "../content/materials.ts";
 import { enqueue, QUEUES, shutdownSignal } from "../jobs/queue.ts";
-import { publishArticle, publishArticleTx } from "../publication/publish.ts";
+import { promoteStoryMembers, publishArticle, publishArticleTx } from "../publication/publish.ts";
 import { latestCompositeCondition } from "../publication/scope.ts";
 import { consolidate, liveStory, type Consolidation } from "./consolidate.ts";
 import { mergeStoryInto } from "./merge.ts";
@@ -247,6 +247,10 @@ export async function groupArticle(articleId: string, opts: GroupOptions = {}): 
     const result = await decide(articleId, opts, revision, input.grouping_status !== 'complete' && input.selection_adds_value === null);
     await markGrouped(articleId, revision);
     await publishArticle(articleId);
+    // A report joining a story may have just crossed the multi-source promotion bar: admit the
+    // story's earlier reports too, or only this one would be promoted.
+    const [{ story_id: promotedStoryId }] = await sql<{ story_id: number | null }[]>`SELECT story_id FROM publications WHERE article_id = ${articleId}`;
+    if (promotedStoryId) await promoteStoryMembers(promotedStoryId);
     return result;
   } catch (error) {
     const receiptId = error && typeof error === 'object' && 'receiptId' in error && typeof error.receiptId === 'number' ? error.receiptId : null;

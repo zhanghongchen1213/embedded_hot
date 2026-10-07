@@ -122,8 +122,10 @@ export function cosine32(a: Float32Array, b: Float32Array): number {
   return na && nb ? dot / Math.sqrt(na * nb) : 0;
 }
 
-/** The lexical fallback's bar: shared bigrams are not on the cosine scale, so it has its own. */
-const LEXICAL_MIN = 0.25;
+/** The lexical fallback's bar: content-token overlap (relate.ts) is not on the cosine scale, so it
+ *  has its own. Calibrated on real pairs: same-event reports score ~0.35 and unrelated pairs stay
+ *  under 0.19 (p90 0.033), so 0.20 sits in the gap; judgeBatch still rejects what slips through. */
+const LEXICAL_MIN = 0.2;
 
 /** Both identity candidates and reading context use the same stored vectors (or the lexical fallback). */
 async function similarReports(queryId: string, queryText: string, pool: Array<{ article_id: string; revision?: number }>, minScore: number): Promise<Map<string, number>> {

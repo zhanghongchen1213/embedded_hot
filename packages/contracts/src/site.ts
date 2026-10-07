@@ -244,7 +244,7 @@ export interface StoryDetail {
   /** The current public report supplying latest; never inferred from an independently generated digest. */
   latestReport: { id: string } | null;
   whyHot: {
-    participants48h: number;
+    participantsWindow: number;
     newParticipants6h: number;
     recentReports24h: number;
     observationComplete: boolean;

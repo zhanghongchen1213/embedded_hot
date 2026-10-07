@@ -2,18 +2,20 @@
 // manual overrides and grouping, then record selected-set changes in the sync ledger.
 // Rebuilding only re-reads stored results; it never calls a model.
 import { toPublicApiCategory } from "@aihot/contracts/taxonomy";
+import { SELECTION } from "@aihot/industry/selection";
 import { SITE } from "@aihot/site";
 import { one, sql, type Tx } from "../db.ts";
 import { sha256, stableJson } from "../lib/ids.ts";
 import { collapseWhitespace } from "../lib/text.ts";
 import { itemUrl } from "./links.ts";
 import { pickRepresentative, REPRESENTATIVE_COLUMNS, type RepresentativeIdentity } from "./representative.ts";
+import { storySources } from "./coverage.ts";
 import { enqueue, QUEUES, shutdownSignal } from "../jobs/queue.ts";
 import { emit } from "../modules.ts";
 import {
   bodyModeOf, channelOf, displayTags, isIndexable, isPoolEligible, isSelectable, mayRedistribute, publicSourceName, type SourceFacts,
 } from "./rules.ts";
-import { latestCompositeCondition, ownFactEvidenceCondition } from "./scope.ts";
+import { latestCompositeCondition, listedCondition, ownFactEvidenceCondition } from "./scope.ts";
 
 interface ArticleRow {
   id: string;
@@ -228,6 +230,27 @@ export async function publishArticle(articleId: string, options: PublishOptions 
   });
 }
 
+/**
+ * Once a story reaches the promotion bar its earlier reports are admitted too: without this, only the
+ * report that happened to arrive tenth would be promoted and the event's own coverage would stay out.
+ * Only not-yet-selected members are recomputed, so repeated calls are cheap no-ops.
+ */
+export async function promoteStoryMembers(storyId: number): Promise<number> {
+  const now = new Date();
+  const counted = (await storySources([storyId], now)).get(storyId) ?? [];
+  if (counted.length < SELECTION.promoteMinSources) return 0;
+  // story_id on a publication is the evidence membership (primary/report, never a mention or
+  // composite), so filtering on it is the evidence condition here.
+  const rows = await sql<{ article_id: string }[]>`
+    SELECT p.article_id FROM publications p JOIN articles a ON a.id = p.article_id JOIN sources s ON s.id = p.source_id
+    WHERE p.story_id = ${storyId} AND NOT p.selected AND p.visibility = 'public'
+      AND s.participation_mode = 'editorial' AND s.tier <> 'EXCLUDE_MP'
+      AND ${listedCondition(now)}`;
+  let promoted = 0;
+  for (const r of rows) if (await publishArticle(r.article_id)) promoted++;
+  return promoted;
+}
+
 export async function publishArticleTx(tx: Tx, articleId: string, options: PublishOptions = {}): Promise<PublishResult | null> {
   const [article] = await tx<ArticleRow[]>`
     SELECT id, source_id, url, title, language, published_at, discovered_at, timeline_at, backfill, body_status,
@@ -281,10 +304,20 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
   const eligible = isPoolEligible({ participationMode: source.participation_mode, relevance, title, summary })
     && (!article.backfill || article.published_at !== null || !!options.releasedAt);
   const selectionCandidate = isSelectable(eligible, judgedSelected, source.tier);
+  // Multi-source consensus: an event reported by many independent sources is its own signal — its
+  // evidence reports are promoted past the score gate and the "adds value" check, still behind the
+  // identity gate and an editor's veto. This row is not in publications yet, so count it explicitly.
+  let promoted = false;
+  if (eligible && visibility === "public" && source.tier !== "EXCLUDE_MP"
+    && article.grouping_status === "complete" && f.selected !== false && membership?.story_id) {
+    const counted = new Set((await storySources([membership.story_id], now, tx)).get(membership.story_id) ?? []);
+    counted.add(source.id);
+    promoted = counted.size >= SELECTION.promoteMinSources;
+  }
   // Scoring nominates a report; a completed identity/value decision admits it to selection.
   // A historical import already has its public decision. Preserve that confirmed state on rebuild.
-  const selected = selectionCandidate && article.grouping_status === "complete"
-    && (f.selected === true || article.selection_adds_value !== false);
+  const selected = promoted || (selectionCandidate && article.grouping_status === "complete"
+    && (f.selected === true || article.selection_adds_value !== false));
   const reason = selected ? pickString(f.reason, analysis?.reason_zh ?? null) : null;
   const hasXPost = !!article.x_post;
   const channel = channelOf(source.kind, hasXPost);
@@ -294,7 +327,7 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
 
   // Waiting candidates are readable in the pool, with no selected seat, sync entry or push.
   // Completion stamps the actual release after lock waits, including across report cutoffs.
-  const selectedReadyAt = previous?.selected_ready_at ?? (selectionCandidate ? options.releasedAt ?? now : null);
+  const selectedReadyAt = previous?.selected_ready_at ?? ((selectionCandidate || promoted) ? options.releasedAt ?? now : null);
   const visibleAfter = selected ? (previous?.selected && previous.visible_after ? previous.visible_after : options.releasedAt ?? now) : null;
 
   const indexable = isIndexable({
@@ -389,8 +422,9 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
   }
 
   // Content-group push: once, for an item that arrives live and becomes selected (never for imports,
-  // backfill or stale-on-discovery material).
-  if (selected && !previous?.selected && !options.releasedAt && !article.backfill && visibility === "public") {
+  // backfill or stale-on-discovery material). Consensus promotions skip the push: a widely reported
+  // event would otherwise fire one notification per report.
+  if (selected && !promoted && !previous?.selected && !options.releasedAt && !article.backfill && visibility === "public") {
     await enqueue(QUEUES.notifySelected, { articleId }, { singletonKey: `selected:${articleId}`, startAfter: new Date(now.getTime() + 5_000) }, tx);
     // Prepare its images alongside the newly confirmed selection.
     await enqueue(QUEUES.prepareMedia, { articleId }, { singletonKey: `media:${articleId}` }, tx);
