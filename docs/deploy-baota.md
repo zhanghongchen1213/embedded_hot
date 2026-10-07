@@ -78,7 +78,7 @@ Docker 起容器有两种方式：
 
 ```bash
 cd /Users/hongchenke/Documents/Github/embedded_hot
-COPYFILE_DISABLE=1 tar --exclude node_modules --exclude .data --exclude .env --exclude .git --exclude '._*' --exclude .DS_Store -czf /tmp/embhot.tar.gz .
+COPYFILE_DISABLE=1 tar --exclude node_modules --exclude .data --exclude '.env*' --exclude .git --exclude '._*' --exclude .DS_Store --exclude 'apps/web/build' --exclude 'apps/web/.react-router' -czf /tmp/embhot.tar.gz .
 ```
 
 得到 `/tmp/embhot.tar.gz`（几十 MB）——这就是要传上服务器的"安装包"。四个排除项很重要：`node_modules`（依赖服务器上重新装）、`.data`（本地数据，要迁到服务器见第 11 节）、`.env`（本地配置不要带上服务器）、`.git`（用不上）。
@@ -313,7 +313,7 @@ docker compose exec -T db pg_dump -U aihot aihot | gzip > backup-$(date +%F).sql
 
 ```bash
 cd /Users/hongchenke/Documents/Github/embedded_hot
-COPYFILE_DISABLE=1 tar --exclude node_modules --exclude .data --exclude .env --exclude .git --exclude '._*' --exclude .DS_Store -czf /tmp/embhot.tar.gz .
+COPYFILE_DISABLE=1 tar --exclude node_modules --exclude .data --exclude '.env*' --exclude .git --exclude '._*' --exclude .DS_Store --exclude 'apps/web/build' --exclude 'apps/web/.react-router' -czf /tmp/embhot.tar.gz .
 ```
 
 ### 9.2 换上新代码（宝塔文件管理）
