@@ -23,7 +23,7 @@ description: embhot 的开发交付闭环：完成开发需求 → 本地验证�
 
 ## 阶段 2：本地验证（模型自判，结论必须写进汇报）
 
-**唯一判据**：`git diff --name-only`（含 untracked）中不存在任何 `.ts`/`.tsx`/`.sql`/`package.json`/`Dockerfile`/`docker-compose.yml`/`industry/` 数据与提示词（`sources.json`、`topics.json`、`prompts/`、`selection.ts`、`taxonomy.ts`）/`site/` 带类型的代码的**语义**改动——字符串字面量、注释、纯格式除外。满足才可跳过；**拿不准一律跑验证**。跳过时输出一行 `SKIP_VERIFY: <理由>`；误判是可追溯事故，宁可多跑。
+**唯一判据**：`git diff --name-only`（含 untracked）中不存在任何 `.ts`/`.tsx`/`.sql`/`package.json`/`package-lock.json`/`Dockerfile`/`docker-compose.yml`/`industry/` 数据与提示词（`sources.json`、`topics.json`、`prompts/`、`selection.ts`、`taxonomy.ts`）/`site/` 带类型的代码的**语义**改动——字符串字面量、注释、纯格式除外。满足才可跳过；**拿不准一律跑验证**。跳过时输出一行 `SKIP_VERIFY: <理由>`；误判是可追溯事故，宁可多跑。
 
 跑验证时（新开终端需重新 export；三条命令在同一个已 export 的 shell 里跑）：
 
@@ -38,7 +38,7 @@ npm run build -w @aihot/web && node --test apps/web/tests/*.test.ts
 node scripts/smoke.ts --base http://localhost:3000   # 本地站点已起时补跑
 ```
 
-**绿的标准**：上述命令退出码全 0（warning 与 skip 不算失败；typecheck 失败同样阻断）。失败处理：
+**绿的标准**：前三条命令退出码全 0（warning 与 skip 不算失败；typecheck 失败同样阻断）；smoke 仅在本地站点已起时补跑，未跑不算失败但要在汇报注明。失败处理：
 
 - 先修到绿；不许带着自己引入的失败部署。
 - 失败出现在从未触碰的文件里时，走基线复现三步曲：`git stash push -u` → 重跑失败用例 → **必须 `git stash pop` 并用 `git status` 确认改动已恢复**（未恢复禁止进入阶段 3，否则会打出不含修复的包）。基线也失败且与本次改动无关 = 环境性旧失败：不修、可部署，但必须在汇报里列表记录（文件、用例、基线结果、放行理由）。基线绿 = 是你引入的，必须修。
@@ -59,7 +59,7 @@ node scripts/smoke.ts --base http://localhost:3000   # 本地站点已起时补�
 
 规则：
 - 顶层键名是 `releases`；`body` 是**字符串数组**（1–3 个元素，每个只讲一个要点，不允许空数组）。
-- **时间戳唯一且为最大值**：`latestVersion` = 所有条目 `date + "T" + time`（精确格式 `YYYY-MM-DDTHH:MM`，无秒）的最大值；同日多条目用递增分钟错开（如 09:30、09:31），**禁止同戳**（同戳会让侧栏红点永不亮，见 `apps/web/app/components/shell/Sidebar.tsx` 的字符串比较）。一律用**北京时间**，取部署上线时刻。
+- **时间戳向前进，且三者恒等**：新条目的 `date + "T" + time`（精确格式 `YYYY-MM-DDTHH:MM`，无秒）必须**严格大于**所有已有条目（不许倒灌、不许同戳——同戳会让侧栏红点永不亮，见 `apps/web/app/components/shell/Sidebar.tsx` 的字符串比较）；`latestVersion` 恒等于 `releases[0]` 的戳，也恒等于全表最大值。同日多条目按发布时间先后递增分钟（如先发的 09:30 在后、新发的 09:31 在前）。一律用**北京时间**，取部署上线时刻。
 - 最新条目放数组最前。
 - `kind` 判据：新能力=`更新`；体验改善与修复=`优化`；站务通知=`公告`；功能移除=`下线`。
 - 何时可不写：仅当改动不影响任何读者可感知行为（纯重构/测试/CI）时才跳过本阶段，汇报里注明"changelog: 无读者可见变化"；拿不准就写。纯视觉微调（表情、字距）归此类。
@@ -69,28 +69,28 @@ node scripts/smoke.ts --base http://localhost:3000   # 本地站点已起时补�
 ### 4.0 发版前置检查（全部过才继续）
 
 1. `git status`：工作树干净，或列出将出货的全部改动并获使用者确认（防止把无关 WIP 卷上线）。
-2. **备份数据库**（更新前备份不能省，迁移可能删表删列）：确认 OBS 自动备份最近一次成功，或手动快照——
-   `ssh root@113.44.43.204 'cd /www/dk_project/dk_app/dk_embhot && docker compose exec -T db pg_dump -U aihot aihot | gzip > backup-$(date +%F-%H%M).sql.gz'`
-3. **长脚本互斥**：`ssh root@113.44.43.204 'docker compose -f /www/dk_project/dk_app/dk_embhot/docker-compose.yml exec -T worker ps aux'` 人工看一眼——凡运行超过 1 分钟的批量/重评分脚本都算长脚本，`up -d` 会杀掉它。有则等它完成或**先问使用者**再停。
-4. 磁盘检查：`ssh root@113.44.43.204 'df -h /'`——可用 <2G 先清理（旧镜像 `docker image prune`、旧备份包）。
+2. **备份数据库**（更新前备份不能省，迁移可能删表删列；custom 格式，回滚时 `pg_restore` 直接可用）：
+   `ssh root@113.44.43.204 'cd /www/dk_project/dk_app/dk_embhot && docker compose exec -T db pg_dump -U aihot -Fc -f /tmp/backup-$(date +%F-%H%M).dump aihot && docker compose cp db:/tmp/backup-<时间戳>.dump /tmp/'`（不走管道，退出码保真；OBS 自动备份最近一次成功也可作为唯一备份，二选一）。
+3. **长脚本互斥**：`ssh root@113.44.43.204 'docker top aihot-worker-1'` 人工看一眼（容器内无 `ps`；不要用 `exec … ps aux`）——凡运行超过 1 分钟的批量/重评分脚本都算长脚本，`up -d` 会杀掉它。有则等它完成或**先问使用者**再停。
+4. 磁盘检查：`ssh root@113.44.43.204 'df -h /'`——可用 <2G 先清理（`docker image prune`、旧 SQL 备份；`embhot-*.tar.gz` 除当前包外**至少保留上一代**供回滚，不算可清理项）。
 
-### 4.1 打包（在仓库根目录执行）
+### 4.1 打包（在仓库根目录执行；`PKG` 变量贯穿 4.1–4.2）
 
 ```bash
+PKG=/tmp/embhot-$(date +%Y%m%d-%H%M).tar.gz
 COPYFILE_DISABLE=1 tar --exclude node_modules --exclude .data --exclude '.env*' --exclude .git \
   --exclude '._*' --exclude .DS_Store --exclude 'apps/web/build' --exclude 'apps/web/.react-router' \
-  -czf /tmp/embhot-$(date +%Y%m%d-%H%M).tar.gz .
+  -czf "$PKG" .
 ```
 
 - `COPYFILE_DISABLE=1` 与 `._*` 不可省（macOS 元数据文件会炸数据库迁移）。
-- 时间戳文件名：服务器保留上一代包用于回滚（4.5）。
 - 打包的是**整棵工作树**（覆盖合并语义），所以 4.0 的工作树检查是硬前提。
 
 ### 4.2 上传解压（失败即停）
 
 ```bash
-scp -q /tmp/embhot-*.tar.gz root@113.44.43.204:/tmp/
-ssh root@113.44.43.204 'cd /www/dk_project/dk_app/dk_embhot && tar -xzf /tmp/embhot-<时间戳>.tar.gz'
+scp -q "$PKG" root@113.44.43.204:/tmp/
+ssh root@113.44.43.204 "cd /www/dk_project/dk_app/dk_embhot && tar -xzf /tmp/$(basename "$PKG")"
 ```
 
 - 解压是**覆盖合并**：不会删除服务器上多出的旧文件（本地删过的文件会残留）；`.env*` 已整体排除，永不覆盖。
@@ -99,20 +99,23 @@ ssh root@113.44.43.204 'cd /www/dk_project/dk_app/dk_embhot && tar -xzf /tmp/emb
 ### 4.3 部署（顺序是框架硬性要求，不得简化）
 
 ```bash
-ssh root@113.44.43.204 'cd /www/dk_project/dk_app/dk_embhot \
-  && waited=0; while [ "$(cut -d" " -f1 /proc/loadavg | cut -d. -f1)" -ge 8 ]; do \
-       sleep 30; waited=$((waited+30)); echo "waiting load... ${waited}s $(cat /proc/loadavg)"; \
-       [ "$waited" -ge 900 ] && { echo "LOAD_GATE_TIMEOUT: 未部署，代码已在服务器"; exit 2; }; \
-     done \
-  && docker compose build --build-arg NPM_REGISTRY=https://registry.npmmirror.com > /tmp/build.log 2>&1 \
-  && echo BUILD_OK || { echo BUILD_FAILED; tail -20 /tmp/build.log; exit 3; } \
-  && docker compose stop api worker web \
-  && docker compose run --rm setup && docker compose up -d'
+ssh root@113.44.43.204 'cd /www/dk_project/dk_app/dk_embhot || exit 1
+  waited=0
+  while [ "$(cut -d" " -f1 /proc/loadavg | cut -d. -f1)" -ge 8 ]; do
+    sleep 30; waited=$((waited+30)); echo "waiting load... ${waited}s $(cat /proc/loadavg)"
+    if [ "$waited" -ge 900 ]; then echo "LOAD_GATE_TIMEOUT: 未部署，代码已在服务器"; uptime; free -h; exit 2; fi
+  done
+  docker compose build --build-arg NPM_REGISTRY=https://registry.npmmirror.com > /tmp/build.log 2>&1 \
+    && echo BUILD_OK || { echo BUILD_FAILED; tail -20 /tmp/build.log; exit 3; }
+  docker compose stop api worker web || { echo "DEPLOY_FAILED_STEP=stop"; exit 4; }
+  docker compose run --rm setup || { echo "DEPLOY_FAILED_STEP=setup（站点已停！按 4.5 处置）"; exit 5; }
+  docker compose up -d || { echo "DEPLOY_FAILED_STEP=up"; exit 6; }'
 ```
 
-- **顺序语义**：build（新镜像就绪）→ 停旧 api/worker/web（迁移可能删表删列，旧进程在跑会出错）→ `setup` 跑迁移+种子（**失败则不启动**，看 `/tmp/build.log` 之外的 setup 输出排障，参照 `docs/deploy.md`）→ `up -d` 起新版。这是 `docs/deploy.md` 的硬性要求。
-- 退出码保真用 `> /tmp/build.log`（不用 `| tail`——管道会吞掉 build 失败）。`BUILD_FAILED`/`LOAD_GATE_TIMEOUT`/`exit 3` 都算部署失败：停下汇报，不许宣称完成。
-- 负载闸带 15 分钟预算与每 30 秒心跳；超时输出 `uptime`/`free -h` 后中止（"负载高，未部署；代码已在服务器，可稍后重跑 4.3"）。
+- **while 循环体结尾必须是 `if … fi`**（或 `; true`）：bash 的 while 退出状态 = 循环体最后一条命令的状态，写成 `[ … ] && { … }` 会让"等过一轮"的路径以失败退出、好路径被打断（这是实测复现过的 bug）。
+- **顺序语义**：build（新镜像就绪）→ 停旧 api/worker/web（迁移可能删表删列，旧进程在跑会出错）→ `setup` 跑迁移+种子（**失败则不启动**，参照 `docs/deploy.md` 排障）→ `up -d` 起新版。这是 `docs/deploy.md` 的硬性要求。
+- 退出码保真用重定向（禁 `| tail`——管道会吞掉 build 失败）。任何 `*_FAILED_STEP`/`LOAD_GATE_TIMEOUT` 都算部署失败：停下汇报，不许宣称完成。
+- **`DEPLOY_FAILED_STEP=setup` 的特殊处置**：此时 api/worker/web 已停、站点不可用——必须当场继续（排障后重跑 `run --rm setup && up -d`，或立即走 4.5 回滚），修不好不许离场，汇报里明确写"站点当前不可用"。
 
 ### 4.4 实证验收（真门，不许糊弄）
 
@@ -121,13 +124,14 @@ ssh root@113.44.43.204 'curl -fsS http://127.0.0.1:3000/<页面路径> | grep -q
 ```
 
 - **必须用 `grep -qF` + `curl -fsS`**（`-f` 让 5xx 非零退出；`grep -q` 空输入非零退出）。禁止 `grep -o | head` 组合——它在内容未命中时也返回 0，会假报成功。
-- **双验收**：内网 `127.0.0.1:3000` 过后，再验公网 `curl -fsS https://embhot.zhcmqtt.top/<同路径>`（能连通时）。公网 502/超时而内网正常 = 反代层问题：按序查 `docker compose ps`（web 是否在听）→ 宝塔该站点的反向代理配置 → `docs/deploy-baota.md` 的反代小节；反代层修不好不算交付完成，如实汇报。
+- **独有标志的选取**：本次 changelog 条目 `title` 的 ≥10 字连续子串，或本次新增的唯一文本（新按钮/新标题的原文）——不用可能撞车的短词。
+- **双验收**：内网 `127.0.0.1:3000` 过后，再验公网 `curl -fsS https://embhot.zhcmqtt.top/<同路径>`（公网必须验，只在明确无公网条件时跳过并汇报）。公网 502/超时而内网正常 = 反代层问题：按序查 `docker compose ps`（web 是否在听）→ 宝塔该站点的反向代理配置 → `docs/deploy-baota.md` 的反代小节；反代层修不好不算交付完成，如实汇报。
 - 无页面可见效果的改动（API/RSS/worker 行为）：验收证据换成对应出口的 `curl -fsS` 结果或一条可核对的运行日志，同样只在证据成立时输出 `SHIP_VERIFIED`。
-- 验收失败：间隔 ≥15 秒重试 2 次（web 可能还在起）；仍失败则停止，汇报 curl 的完整输出，**不许宣称完成**，是否回滚听使用者。
+- 验收失败：**最多共 3 次尝试（首次 + 重试 2 次），每次间隔 ≥15 秒**（web 可能还在起）；仍失败则停止，汇报 curl 的完整输出，**不许宣称完成**，是否回滚听使用者。
 
 ### 4.5 回滚与发版台账
 
-- **回滚**（验收失败且使用者要求回滚、或部署后发现严重问题）：取服务器上上一代 tar 解压覆盖 → 重跑 4.3（同一顺序）。本次更新含数据库迁移时，恢复前先用 4.0.2 的备份 `pg_restore`（参照 `docs/deploy.md` 备份一节），并提醒使用者迁移回退可能丢新数据。
+- **回滚**（验收失败且使用者要求回滚、部署后发现严重问题、或 `DEPLOY_FAILED_STEP=setup` 修不好）：取服务器上上一代 tar 解压覆盖 → 重跑 4.3（同一顺序）。本次更新含数据库迁移时，恢复前先回灌 4.0.2 的备份：`docker compose cp /tmp/backup-<时间戳>.dump db:/tmp/ && docker compose exec -T db pg_restore -U aihot -d aihot --clean --if-exists /tmp/backup-<时间戳>.dump`（4.0.2 产的是 `-Fc` custom 格式，`pg_restore` 直接可用；注意 plain `.sql.gz` 备份不能用 pg_restore，那要 `psql` 灌），并提醒使用者迁移回退可能丢新数据。
 - **台账**：每次成功交付后在汇报末尾输出一行：`SHIP <YYYY-MM-DD HH:MM> | <改动范围一句话> | <验收证据> | <包名>`。同戳/连续两次 ship 以此判别线上版本。
 
 ## 自保规则（实战坑，违反会翻车）
